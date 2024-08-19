@@ -38,7 +38,6 @@ export const usersRoute = new Hono<{ Bindings: { DB: D1Database } }>()
       return c.json({}, {})
     },
   )
-
   .get("/", async (c) => {
     const db = drizzle(c.env.DB)
 
@@ -56,15 +55,12 @@ export const usersRoute = new Hono<{ Bindings: { DB: D1Database } }>()
       },
     })
   })
-
   .put("/", async (c) => {
     return new Response()
   })
-
   .delete("/", async (c) => {
     return new Response()
   })
-
   .get("/:user_id/bookmarks", async (c) => {
     const db = drizzle(c.env.DB)
 
