@@ -6,7 +6,7 @@ import type { Context } from "hono"
 import { eq } from "drizzle-orm"
 import { usersTable } from "~/schema"
 
-export function getAuthConfig(c: Context): AuthConfig {
+export function authConfig(c: Context): AuthConfig {
   return {
     secret: c.env.AUTH_SECRET,
     providers: [
@@ -17,26 +17,27 @@ export function getAuthConfig(c: Context): AuthConfig {
           password: { type: "password" },
         },
         async authorize(credentials) {
+          console.log("111", credentials)
           if (typeof credentials.email !== "string") {
             return null
           }
           if (typeof credentials.password !== "string") {
             return null
           }
-
+          console.log("aaa", credentials)
           const db = drizzle(c.env.DB)
 
           const user = await db
             .select()
             .from(usersTable)
-            .where(eq(usersTable.login, credentials.email))
+            .where(eq(usersTable.email, credentials.email))
             .get()
 
           if (user === undefined) {
             return null
           }
 
-          if (user.login !== credentials.email) {
+          if (user.email !== credentials.email) {
             return null
           }
 
@@ -50,8 +51,7 @@ export function getAuthConfig(c: Context): AuthConfig {
           }
 
           return {
-            id: user.uuid,
-            email: user.login,
+            id: user.id,
           }
         },
       }),

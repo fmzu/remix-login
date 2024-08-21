@@ -4,10 +4,16 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react";
-import "./tailwind.css";
+} from "@remix-run/react"
+import "./tailwind.css"
+import { SessionProvider } from "@hono/auth-js/react"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
-export function Layout({ children }: { children: React.ReactNode }) {
+const queryClient = new QueryClient()
+
+type Props = { children: React.ReactNode }
+
+export function Layout(props: Props) {
   return (
     <html lang="en">
       <head>
@@ -17,14 +23,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <SessionProvider>
+          <QueryClientProvider client={queryClient}>
+            {props.children}
+          </QueryClientProvider>
+        </SessionProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
-  );
+  )
 }
 
 export default function App() {
-  return <Outlet />;
+  return <Outlet />
 }
