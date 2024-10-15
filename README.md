@@ -1,40 +1,55 @@
-# Welcome to Remix!
 
-- 📖 [Remix docs](https://remix.run/docs)
-
-## Development
-
-Run the dev server:
-
-```shellscript
-npm run dev
+```
+bun run --cwd api dev
+bun run --cwd ui dev
 ```
 
-## Deployment
+Drizzle-studio
 
-First, build your app for production:
-
-```sh
-npm run build
+```
+bun run --cwd api studio
 ```
 
-Then run the app in production mode:
+デプロイ(どっちもdeployするときはapiの方から順番に)
 
-```sh
-npm start
+```
+bun run --cwd api deploy
+bun run --cwd ui deploy
 ```
 
-Now you'll need to pick a host to deploy it to.
+DBの作成
+```
+bun --cwd api wrangler d1 create remix-login
+```
 
-### DIY
+Drizzleスキーマに基づいてマイグレーションを生成する
 
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
+```
+bun --cwd api drizzle-kit generate
+```
 
-Make sure to deploy the output of `npm run build`
+ローカルのデータベースを更新
 
-- `build/server`
-- `build/client`
+```
+bun --cwd api wrangler d1 migrations apply remix-login --local
+```
 
-## Styling
+本番環境のデータベースを更新
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+```
+bun --cwd api wrangler d1 migrations apply remix-login --remote
+```
+
+shadcnで必要なコンポーネントだけ取得する(bunxの際はcdでファイル移動する)
+
+```
+bunx shadcn@latest add button 
+```
+
+### インストール
+
+bun iするときは--cwdを使う
+
+```
+bun i --cwd ui react
+```

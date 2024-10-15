@@ -1,48 +1,23 @@
 {
   "name": "remix-login",
-  "private": true,
-  "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "remix vite:build",
-    "dev": "remix vite:dev",
-    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc",
-    "migrate": "drizzle-kit generate && wrangler d1 migrations apply note --local"
-  },
-  "dependencies": {
-    "@cloudflare/workers-types": "^4.20240815.0",
-    "@hono/auth-js": "^1.0.10",
-    "@hono/valibot-validator": "^0.3.0",
-    "@remix-run/cloudflare": "^2.11.2",
-    "@remix-run/node": "^2.11.2",
-    "@remix-run/react": "^2.11.2",
-    "@remix-run/serve": "^2.11.2",
-    "@tanstack/react-query": "^5.52.0",
-    "bcrypt-ts": "^5.0.2",
-    "drizzle-orm": "^0.33.0",
-    "hono": "^4.5.6",
-    "isbot": "^4.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "valibot": "^0.38.0",
-    "wrangler": "^3.72.0"
+    "format": "biome check . --fix --unsafe"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
-    "@remix-run/dev": "^2.11.2",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "autoprefixer": "^10.4.19",
-    "drizzle-kit": "^0.24.0",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.4",
-    "typescript": "^5.1.6",
-    "vite": "^5.4.2",
-    "vite-tsconfig-paths": "^4.2.1"
+    "@biomejs/biome": "^1.9.1",
+    "@types/bun": "latest",
+    "wrangler": "3.57.1"
   },
-  "engines": {
-    "node": ">=20.0.0"
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "workspaces": ["*"],
+  "dependencies": {
+    "@hono/auth-js": "^1.0.10",
+    "@hono/valibot-validator": "^0.3.1",
+    "@hono/zod-validator": "^0.3.0",
+    "hono": "^4.6.3",
+    "valibot": "^0.42.1"
   }
 }

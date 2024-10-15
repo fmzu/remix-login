@@ -1,5 +1,5 @@
 {
-  "[typescript][typescriptreact]": {
+  "[typescript][typescriptreact][json]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "biomejs.biome",
     "editor.codeActionsOnSave": {
@@ -8,14 +8,10 @@
     }
   },
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.preferences.autoImportFileExcludePatterns": [
-    "@emotion",
-    "@radix-ui",
-    "next/dist",
-    "postcss",
-    "process",
-    "react-day-picker",
-    "tailwind-merge",
-    "tailwindcss"
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "github.copilot.chat.experimental.codeGeneration.instructions": [
+    {
+      "file": ".copilot-instructions.md"
+    }
   ]
 }

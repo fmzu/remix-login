@@ -1,24 +1,19 @@
 {
   "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
-  "files": {
-    "include": ["app", "*.ts", "*.json"]
-  },
   "linter": {
     "rules": {
-      "recommended": true,
       "correctness": {
-        "useExhaustiveDependencies": "off",
         "noUnusedImports": "error"
       }
     },
-    "ignore": ["app/components/ui"]
+    "ignore": ["ui/components/ui"]
   },
   "formatter": {
     "indentStyle": "space",
     "lineEnding": "lf"
   },
   "organizeImports": {
-    "enabled": false
+    "enabled": true
   },
   "javascript": {
     "formatter": {

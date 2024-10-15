@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1728615598996,
+      "tag": "0000_salty_wolf_cub",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1728635896869,
+      "tag": "0001_strong_swordsman",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1728831540094,
+      "tag": "0002_smiling_jubilee",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1728956239421,
+      "tag": "0003_silky_scourge",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1728956479268,
+      "tag": "0004_zippy_nicolaos",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1728971173544,
+      "tag": "0005_flimsy_hulk",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1728971633307,
+      "tag": "0006_shocking_donald_blake",
+      "breakpoints": true
+    }
+  ]
+}
